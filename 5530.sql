@@ -123,6 +123,62 @@ SELECT *
 FROM working_thk_table
 WHERE working_thk <> 0
 ),
+frac_thickness as
+(
+SELECT *,
+   (CAST(working_thk as float))/25 as thk_fraction
+FROM final_ott_25hzthk
+),
+grouped_by_hzkey as
+(
+SELECT hz_oid,
+   ott_mupol_mukey,
+   co_cokey,
+   hz_cokey,
+   chkey,
+   awc_r,
+   hzdept_r,
+   hzdepb_r,
+   hzthk_r,
+   compname,
+   compkind,
+   elev_r,
+   fall_on_25_spl,
+   thk_upto_spl25,
+   og_thk_r,
+   working_thk,
+   thk_fraction
+FROM frac_thickness
+GROUP BY hz_oid,
+   ott_mupol_mukey,
+   co_cokey,
+   hz_cokey,
+   chkey,
+   awc_r,
+   hzdept_r,
+   hzdepb_r,
+   hzthk_r,
+   compname,
+   compkind,
+   elev_r,
+   fall_on_25_spl,
+   thk_upto_spl25,
+   og_thk_r,
+   working_thk,
+   thk_fraction
+ORDER BY co_cokey
+)
+SELECT sum(awc_r * thk_fraction) as wghtd_ave_awc_co, co_cokey, ott_mupol_mukey
+FROM grouped_by_hzkey
+GROUP BY co_cokey, ott_mupol_mukey
+ORDER BY ott_mupol_mukey
+
+
+
+
+
+
+
 ottsoilsblob as
 (
 SELECT ST_Union(geom) as geom
@@ -163,3 +219,33 @@ WHERE NOT St_IsEmpty(ST_Buffer(ST_Intersection(s.geom, p.geom), 0.0))
 --)
 --SELECT e.*, s.sum, e.sqm/s.sum as frac_of_sum
 --FROM eq_area_sqm e, sum_of_areas s
+
+
+
+
+
+
+
+
+with identity_eq_area as
+(
+SELECT *,
+ST_Transform(geom, 2163) as EqAreaGeom,
+ST_Area(ST_Transform(geom, 2163)) as sqm
+FROM parcels_where_soil_2_identit
+),
+tot_parcel_eq_area as
+(
+SELECT parcel_gid,
+   ST_Transform(ST_Union(geom), 2163) as eq_area_geom,
+   ST_Area(ST_Transform(ST_Union(geom), 2163)) as tot_parcel_area
+FROM parcels_where_soil_2_identit
+GROUP BY parcel_gid
+),
+joined_tot_area_identity as
+(
+SELECT i.*, t.tot_parcel_area
+FROM identity_eq_area i
+LEFT JOIN tot_parcel_eq_area t
+ON i.parcel_gid = t.parcel_gid
+)
