@@ -1,0 +1,1 @@
+/Library/PostgreSQL/14/bin/psql -h spatialdb.gisandbox.org -d felza001 -U felza001 -f /Users/michaelfelzan/Desktop/LCCMR_Soils/loaders/muaggatt_loader.sql 
