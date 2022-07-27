@@ -1,0 +1,1 @@
+/Library/PostgreSQL/14/bin/shp2pgsql -s 4326 /Users/michaelfelzan/Desktop/LCCMR_Soils/shapefiles/MUPOLYGON_4326.shp public.mupolygon_4326 | /Library/PostgreSQL/14/bin/psql -h spatialdb.gisandbox.org -U felza001 -d felza001
