@@ -1,0 +1,42 @@
+
+- gid : parcel GID.
+
+- awa_aws_0_12 : A given parcel's available water storage value, calculated via area weighted average, at the soil-depth interval of 0-12in.
+
+- awa_aws_12_24 : A given parcel's available water storage value, calculated via area weighted average, at the soil-depth interval of 12-24in.
+
+- awa_aws_24_36 : A given parcel's available water storage value, calculated via area weighted average, at the soil-depth interval of 24-36in.
+
+- awa_aws_36_48 : A given parcel's available water storage value, calculated via area weighted average, at the soil-depth interval of 36-48in.
+
+- aws0_12_g80 : A given parcel's available water storage value, calculated via area weighted average with the "Greater than 80%" heuristic exception applied (if a soil type occupies more than 80% of a parcel's area, use that soil's available water storage value for the final parcel value), at the soil-depth interval of 0-12in.
+
+- aws12_24_g80 : A given parcel's available water storage value, calculated via area weighted average with the "Greater than 80%" heuristic exception applied (if a soil type occupies more than 80% of a parcel's area, use that soil's available water storage value for the final parcel value) at the soil-depth interval of 12-24in.
+
+- aws24_36_g80 : A given parcel's available water storage value, calculated via area weighted average with the "Greater than 80%" heuristic exception applied (if a soil type occupies more than 80% of a parcel's area, use that soil's available water storage value for the final parcel value) at the soil-depth interval of 24-36in.
+
+- aws36_48_g80 : A given parcel's available water storage value, calculated via area weighted average with the "Greater than 80%" heuristic exception applied (if a soil type occupies more than 80% of a parcel's area, use that soil's available water storage value for the final parcel value) at the soil-depth interval of 36-48in.
+
+- aws0_12_l20 : A given parcel's available water storage value, calculated via area weighted average with the "Less than 20%" heuristic exception applied (if a soil type occupies less than 20% of a parcel's area, discard soil type from final parcel area weighted average calculation), at the soil-depth interval of 0-12in.
+
+- aws12_24_l20 : A given parcel's available water storage value, calculated via area weighted average with the "Less than 20%" heuristic exception applied (if a soil type occupies less than 20% of a parcel's area, discard soil type from final parcel area weighted average calculation), at the soil-depth interval of 12-24in.
+
+- aws24_36_l20 : A given parcel's available water storage value, calculated via area weighted average with the "Less than 20%" heuristic exception applied (if a soil type occupies less than 20% of a parcel's area, discard soil type from final parcel area weighted average calculation), at the soil-depth interval of 24-36in.
+
+- aws36_48_l20 : A given parcel's available water storage value, calculated via area weighted average with the "Less than 20%" heuristic exception applied (if a soil type occupies less than 20% of a parcel's area, discard soil type from final parcel area weighted average calculation), at the soil-depth interval of 36-48in.
+
+- rngalg0_12 : For a given parcel, the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied) at the soil-depth interval of 0-12in
+
+- rngal12_24 : For a given parcel, the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied) at the soil-depth interval of 12-24in
+
+- rngal24_36 : For a given parcel, the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied) at the soil-depth interval of 24-36in
+
+- rngal36_48 : For a given parcel, the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied) at the soil-depth interval of 36-48in
+
+logrg0_12 : For a given parcel, the Log(x+1) of the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied), at the soil-depth interval of 0-12in
+
+logrg12_24 : For a given parcel, the Log(x+1) of the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied), at the soil-depth interval of 12-24in
+
+logrg24_36 : For a given parcel, the Log(x+1) of the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied), at the soil-depth interval of 24-36in
+
+logrg36_48 : For a given parcel, the Log(x+1) of the range of available water storage values between all three algorithms (area weighted average [AWA]; AWA with 'Greater than 80%' heuristic applied; AWA with 'Less than 20%' heuristic applied), at the soil-depth interval of 36-48in
